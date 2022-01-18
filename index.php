@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>teo4</title>
+    <title>oop2</title>
 </head>
 <body>
     <section id="container">
@@ -50,7 +50,9 @@
                         return $this -> nome;
                     }
                     public function setNome($nome){
-                        $this -> nome = $nome;                        
+                        if($nome != " "){
+                            $this -> nome = $nome;                        
+                        }
                     }
 
                     //Cognome
@@ -58,7 +60,9 @@
                         return $this -> cognome;
                     }
                     public function setCognome($cognome){
-                        $this -> cognome = $cognome;                        
+                        if($cognome != " "){
+                            $this -> cognome = $cognome; 
+                        }                       
                     }
 
                     //Data di Nascita
@@ -66,7 +70,10 @@
                         return $this -> dataNascita;
                     }
                     public function setDataNascita($dataNascita){
-                        $this -> dataNascita = $dataNascita;                        
+                        if($dataNascita != " "){
+                            $this -> dataNascita = $dataNascita; 
+                        }
+                                                
                     }
 
                     public function printFullPerson(){
@@ -74,6 +81,7 @@
                     }
                     public function __toString(){
                         return $this -> getNome(). " " . $this -> getCognome() . ": " . $this -> getDataNascita() ;
+                        // return $this -> printFullPerson(); si può fare anche in questo modo
                     }
                 }
 
@@ -102,7 +110,9 @@
                         return $this -> dataAssunzione;
                     }
                     public function setDataAssunzione($dataAssunzione){
-                        $this -> dataAssunzione = $dataAssunzione;                        
+                        if($dataAssunzione != " ") {
+                            $this -> dataAssunzione = $dataAssunzione;                        
+                        }
                     }
 
                     public function printFullEmployee(){
@@ -110,19 +120,23 @@
                     }
                     public function __toString(){
                         return $this -> getNome(). " " . $this -> getCognome() . ": "."€" . $this -> getStipendio()  . " (". $this -> getDataAssunzione() .")" ;
+                        // return $this -> printFullEmployee(); si può fare anche in questo modo
                     }
                 }
                 // Visualizzazione grafica di una persona
                 $p1 = new Persona("Pippo", "Pluto");
-
-                $p1 -> setDataNascita(1992);
+                $p1 -> setDataNascita("30-04-1982");
                 
                 echo "PFP: " . $p1 -> printFullPerson() . "<br>" . "TS: " . $p1 . "<br>";
+
+                echo "<br>" . "-----------------------------" . "<br>" . "<br>";
+
                 // Visualizzazione grafica di un Employee
-                $e1 = new Employee ("Mario","Rossi",1600);
+                $e1 = new Employee ($p1 -> getNome(), $p1 -> getCognome(),1600);
                 $e1 -> setDataAssunzione("11-12-2003");
 
                 echo "PFE: " . $e1 -> printFullEmployee() . "<br>" . "TS: " . $e1 . "<br>";
+
             ?>
         </div>
     </section>
