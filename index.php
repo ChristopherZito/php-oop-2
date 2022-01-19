@@ -89,9 +89,9 @@
                     private $stipendio;
                     private $dataAssunzione;
                     
-                    public function __construct($name, $surname ,$stipendio)
+                    public function __construct($nome, $cognome ,$stipendio)
                     {
-                        parent::__construct($name, $surname);
+                        parent::__construct($nome, $cognome);
                         $this -> setStipendio($stipendio);
                     }
 
